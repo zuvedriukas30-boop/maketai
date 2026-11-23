@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafetyStyle – įmonių užsakymai</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f2238;--hv:#f6c400;--bg:#f3f5f8;--line:rgba(15,34,56,.12);--ink:#0f1b2a;--muted:#5d6b7c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+.demo{background:var(--navy);color:#cdd8e6;font-size:12px;font-weight:600;text-align:center;padding:7px}
+.demo a{color:#fff}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 16px}
+h1{font-size:26px;font-weight:800}h1 span{background:var(--hv);padding:0 8px;border-radius:6px}
+.sub{color:var(--muted);margin:4px 0 18px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+@media(max-width:700px){.kpis{grid-template-columns:1fr 1fr}}
+.k{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+.k b{display:block;font-size:26px;font-weight:800}.k span{font-size:12px;color:var(--muted)}
+.k.y{background:var(--navy);color:#fff}.k.y span{color:#cdd8e6}
+.list{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.r{display:grid;grid-template-columns:110px 1fr 120px 130px 120px;gap:10px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line);font-size:14px}
+.r.h{font-size:12px;color:var(--muted);font-weight:700;background:#fafbfc}
+@media(max-width:760px){.r{grid-template-columns:1fr auto}.r .c3,.r .c4,.r.h{display:none}}
+.r b{display:block}.r small{color:var(--muted);font-size:12px}
+.tag{font-size:11px;font-weight:800;padding:4px 8px;border-radius:7px;text-align:center}
+.n{background:#fff4c2;color:#6b5600}.s{background:#e7eef8;color:#2b4f80}.p{background:#e3f4ea;color:#1e6a40}
+.note{font-size:12px;color:var(--muted);margin-top:14px}
+</style>
+</head>
+<body>
+<div class="demo">Pavyzdiniai duomenys · Kodomeistras.lt · <a href="index.html">← Atgal į formą</a></div>
+<div class="wrap">
+ <h1>Įmonių <span>užsakymai</span></h1>
+ <div class="sub">Visi automatiškai išsiųsti pasiūlymai vienoje vietoje – pažymėkite, kai klientas patvirtina.</div>
+ <div class="kpis">
+  <div class="k y"><b>14</b><span>pasiūlymų šį mėnesį</span></div>
+  <div class="k"><b>6</b><span>patvirtinti užsakymai</span></div>
+  <div class="k"><b>8 940 €</b><span>pasiūlymų vertė</span></div>
+  <div class="k"><b>5</b><span>gauti po darbo valandų</span></div>
+ </div>
+ <div class="list" id="list"></div>
+ <p class="note">Gavus naują užklausą – pranešimas el. paštu ir telefone. Pasiūlymas klientui išsiunčiamas PDF formatu automatiškai, kainos ir nuolaidos imamos iš jūsų nustatymų.</p>
+</div>
+<script>
+const R=[["SS-2026-118","UAB „Statybų ritmas“","Kostiumai REWELLY ×20, batai TURINO ×20, logotipai","2 486,30 €","n","šiandien 08:14"],["SS-2026-117","UAB „Elektros tinklai LT“","Striukės AVIATOR ×12, logotipai","568,49 €","s","vakar 21:47"],["SS-2026-116","MB „Langų meistrai“","Kombinezonai ORION ×6, pirštinės ×10","413,10 €","p","vakar 15:02"],["SS-2026-115","UAB „Švarus miestas“","Batai SAMI REWELLY ×8","813,12 €","p","lapkr. 20 d."],["SS-2026-114","UAB „Logistikos centras“","Striukės KAUKAZ ×30, logotipai","1 296,73 €","s","lapkr. 19 d."],["SS-2026-113","IĮ „Stogdengys“","Kostiumai REWELLY ×4","267,96 €","p","lapkr. 18 d."]];
+const T={n:["Naujas","n"],s:["Išsiųstas","s"],p:["Patvirtintas","p"]};
+document.getElementById("list").innerHTML=`<div class="r h"><span>Nr.</span><span>Įmonė / prekės</span><span class="c3">Suma</span><span class="c4">Gauta</span><span>Būsena</span></div>`+R.map(r=>`<div class="r"><span class="c1"><b>${r[0]}</b></span><span><b>${r[1]}</b><small>${r[2]}</small></span><span class="c3"><b>${r[3]}</b></span><span class="c4"><small>${r[5]}</small></span><span class="tag ${T[r[4]][1]}">${T[r[4]][0]}</span></div>`).join("");
+</script>
+</body>
+</html>
