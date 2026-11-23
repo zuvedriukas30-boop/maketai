@@ -472,7 +472,7 @@ function confirmBk(){
   go(4);
 }
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeBk()});
-if(location.hash==="#book"){openBk(1,"Andželika Klenovskaya",0)}
+if(location.hash==="#book"){openBk(1,"Andželika Klenovskaya",0);let d=new Date();do{d.setDate(d.getDate()+1)}while(!HOURS[d.getDay()]);S.day=iso(d);draw();const t=[...document.querySelectorAll(".time:not(:disabled)")][3];if(t){S.time=t.textContent;draw()}}
 if(location.hash==="#done"){openBk(1,"Andželika Klenovskaya",0);S.day=iso(new Date(Date.now()+864e5*2));S.time="14:00";S.nm="Rūta";S.ph="+37060000000";go(4)}
 </script>
 </body>
