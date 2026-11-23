@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Antakalnio 85 – salono valdymas</title>
+<meta name="theme-color" content="#0e0c0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0c0a;--bg2:#16130f;--card:#1c1814;--line:rgba(236,224,206,.12);--ink:#f1e8da;--muted:#a89b8a;--gold:#c9a46a;--ok:#7fbf8e;--no:#d98a7e;--serif:"Bodoni Moda",Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Manrope,system-ui,sans-serif;background:#0a0908;color:var(--ink);min-height:100vh}
+a{color:inherit}
+.stage{display:grid;grid-template-columns:1fr 420px;gap:64px;max-width:1120px;margin:0 auto;padding:56px 24px;align-items:center;min-height:100vh}
+.pitch .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.pitch h1{font-family:var(--serif);font-weight:500;font-size:48px;line-height:1;margin:14px 0 18px}
+.pitch h1 em{color:var(--gold)}
+.pitch p{color:var(--muted);max-width:440px}
+.pitch ul{list-style:none;margin:28px 0}
+.pitch li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;gap:14px}
+.pitch li b{color:var(--gold);font-family:var(--serif);font-size:22px;font-weight:500;min-width:28px}
+.back{display:inline-block;margin-top:10px;color:var(--gold);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold)}
+.phone{width:400px;height:820px;border-radius:52px;border:10px solid #2a2520;background:var(--bg);overflow:hidden;position:relative;box-shadow:0 40px 120px rgba(0,0,0,.6),0 0 0 1px #3a332b}
+.app{height:100%;overflow:auto;padding:22px 18px 90px;scrollbar-width:none}
+.app::-webkit-scrollbar{display:none}
+@media(max-width:900px){
+  .stage{grid-template-columns:1fr;padding:0;gap:0}
+  .pitch{display:none}
+  .phone{width:100%;height:100svh;border:0;border-radius:0;box-shadow:none}
+  .app{padding-top:16px}
+}
+.demo{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#1a140c;background:var(--gold);border-radius:99px;padding:4px 10px;display:inline-block;font-weight:700}
+.top{display:flex;justify-content:space-between;align-items:center;margin:14px 0 4px}
+.hi{font-family:var(--serif);font-size:26px;font-weight:500;line-height:1.1}
+.date{color:var(--muted);font-size:13px}
+.bell{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative}
+.bell i{position:absolute;top:8px;right:9px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+.kpi b{display:block;font-family:var(--serif);font-size:30px;font-weight:500;line-height:1}
+.kpi span{font-size:11px;color:var(--muted)}
+.kpi.g b{color:var(--gold)}
+.tabs{display:flex;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px;margin-bottom:16px}
+.tabs button{flex:1;border:0;background:none;color:var(--muted);font-family:inherit;font-weight:600;font-size:13px;padding:9px;border-radius:99px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:var(--bg)}
+.h{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:18px 0 10px;display:flex;justify-content:space-between}
+.h span{color:var(--muted);letter-spacing:0;text-transform:none;font-size:12px}
+.tl{position:relative;padding-left:56px}
+.slot{position:relative;margin-bottom:8px}
+.slot .t{position:absolute;left:-56px;top:12px;font-size:13px;color:var(--muted);width:44px;text-align:right}
+.ap{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:11px 14px}
+.ap.n{border-left-color:#8fa7c9}
+.ap.past{opacity:.45}
+.ap.now{box-shadow:0 0 0 1px var(--gold)}
+.ap .r{display:flex;justify-content:space-between;gap:8px}
+.ap b{font-size:14px}
+.ap small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.tag{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:6px;white-space:nowrap;align-self:flex-start}
+.tag.web{background:rgba(201,164,106,.16);color:var(--gold)}
+.tag.ok{background:rgba(127,191,142,.14);color:var(--ok)}
+.free{border:1px dashed var(--line);border-radius:12px;padding:11px 14px;font-size:13px;color:var(--muted)}
+.week{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:150px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 14px 10px}
+.bar{display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.bar i{width:100%;max-width:28px;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,var(--gold),#8a6a3e)}
+.bar span{font-size:11px;color:var(--muted)}
+.bar em{font-style:normal;font-size:11px;color:var(--ink)}
+.list{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.li{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);font-size:13px}
+.li:last-child{border:0}
+.li small{display:block;color:var(--muted);font-size:12px}
+.av{width:36px;height:36px;border-radius:50%;background:rgba(201,164,106,.14);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:16px;margin-right:12px;flex:0 0 36px}
+.li .l{display:flex;align-items:center}
+.info{font-size:12px;color:var(--muted);margin-top:16px;line-height:1.5}
+.toast{position:absolute;left:12px;right:12px;top:14px;z-index:5;background:rgba(36,31,26,.96);backdrop-filter:blur(10px);border:1px solid rgba(201,164,106,.35);border-radius:18px;padding:12px 14px;display:flex;gap:12px;align-items:center;transform:translateY(-140%);transition:transform .5s cubic-bezier(.2,1.2,.3,1)}
+.toast.show{transform:none}
+.toast .ic{width:38px;height:38px;border-radius:10px;background:var(--gold);color:#1a140c;display:flex;align-items:center;justify-content:center;font-weight:800;font-family:var(--serif);font-size:18px;flex:0 0 38px}
+.toast b{font-size:13px;display:block}
+.toast small{font-size:12px;color:var(--muted)}
+.nav{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-around;padding:12px 0 22px;background:rgba(14,12,10,.94);border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
+.nav span{display:flex;flex-direction:column;align-items:center;gap:4px}
+.nav span.on{color:var(--gold)}
+.nav svg{width:20px;height:20px}
+.pane{display:none}.pane.on{display:block}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="pitch">
+    <div class="eyebrow">Salono pusė</div>
+    <h1>Registracijos ateina<br><em>pačios</em></h1>
+    <p>Kol jūs dirbate, klientai registruojasi patys – dieną ir naktį. Telefone matote visą dieną, o sistema pati išsiunčia priminimus.</p>
+    <ul>
+      <li><b>1</b><span>Nauja registracija – iškart pranešimas telefone</span></li>
+      <li><b>2</b><span>SMS priminimas klientui dieną prieš – mažiau neatvykusių</span></li>
+      <li><b>3</b><span>Kiekviena meistrė mato savo grafiką</span></li>
+      <li><b>4</b><span>Telefonu skambinantys klientai – įrašote per 10 sekundžių</span></li>
+    </ul>
+    <p style="font-size:13px">Ekrane – pavyzdiniai duomenys.</p>
+    <a class="back" href="index.html">← Atgal į svetainę</a>
+  </div>
+
+  <div class="phone">
+    <div class="toast" id="toast"><div class="ic">85</div><div><b>Nauja registracija internetu</b><small id="tmsg"></small></div></div>
+    <div class="app">
+      <span class="demo">Pavyzdiniai duomenys</span>
+      <div class="top">
+        <div><div class="hi">Labas rytas,<br>Andželika</div><div class="date" id="date"></div></div>
+        <div class="bell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><i></i></div>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi g"><b id="k1">8</b><span>vizitai šiandien</span></div>
+        <div class="kpi"><b>3</b><span>iš jų internetu</span></div>
+        <div class="kpi"><b>2</b><span>laisvi langai</span></div>
+      </div>
+
+      <div class="tabs" id="tabs"><button class="on" data-p="p1">Šiandien</button><button data-p="p2">Savaitė</button><button data-p="p3">Priminimai</button></div>
+
+      <div class="pane on" id="p1">
+        <div class="h">Mano grafikas <span id="cnt"></span></div>
+        <div class="tl" id="tl"></div>
+      </div>
+
+      <div class="pane" id="p2">
+        <div class="h">Užimtumas <span>vizitų skaičius</span></div>
+        <div class="week" id="week"></div>
+        <div class="h">Iš kur ateina registracijos</div>
+        <div class="list">
+          <div class="li"><span>Svetainė (internetu)</span><b class="gold" style="color:var(--gold)">14</b></div>
+          <div class="li"><span>Telefonu</span><b>19</b></div>
+          <div class="li"><span>Facebook nuoroda</span><b>4</b></div>
+        </div>
+      </div>
+
+      <div class="pane" id="p3">
+        <div class="h">Rytojaus priminimai <span>išsiųs 18:00</span></div>
+        <div class="list" id="rem"></div>
+        <p class="info">Klientas gauna SMS dieną prieš vizitą su nuoroda atšaukti. Atšauktas laikas iškart vėl tampa laisvas registracijai internetu.</p>
+      </div>
+    </div>
+    <div class="nav">
+      <span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Kalendorius</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Naujas</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M17 11a3 3 0 1 0 0-6M22 21a6 6 0 0 0-4-5.6"/></svg>Klientai</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const DN=["sekmadienis","pirmadienis","antradienis","trečiadienis","ketvirtadienis","penktadienis","šeštadienis"];
+const MN=["sausio","vasario","kovo","balandžio","gegužės","birželio","liepos","rugpjūčio","rugsėjo","spalio","lapkričio","gruodžio"];
+const now=new Date();
+document.getElementById("date").textContent=`${now.getFullYear()} m. ${MN[now.getMonth()]} ${now.getDate()} d., ${DN[now.getDay()]}`;
+const hr=now.getHours()+now.getMinutes()/60;
+if(hr>=12)document.querySelector(".hi").innerHTML=hr<18?"Laba diena,<br>Andželika":"Labas vakaras,<br>Andželika";
+
+// pavyzdinis grafikas
+const A=[
+ [9,"Jonas P.","Vyrų kirpimas mašinėle","15 €","tel"],
+ [9.5,"Ona K.","Kirpimas senjorei","23 €","tel"],
+ [10.5,null],
+ [11,"Greta M.","Dažymas su folija","nuo 35 €","web"],
+ [13,"Lukas V.","Kirpimas + barzda","34 €","web"],
+ [14,"Rasa B.","Moterų kirpimas","29 €","tel"],
+ [15,null],
+ [16,"Matas (7 m.)","Vaikų kirpimas","17 €","tel"],
+ [17,"Ieva Ž.","Proginė šukuosena","40 €","web"],
+ [18.5,"Tomas R.","Vyrų kirpimas","24 €","tel"]
+];
+const f=t=>Math.floor(t)+":"+(t%1?"30":"00");
+let n=0;
+document.getElementById("tl").innerHTML=A.map((a,i)=>{
+  const t=a[0],next=(A[i+1]||[20])[0];
+  if(!a[1])return`<div class="slot"><span class="t">${f(t)}</span><div class="free">Laisvas langas · ${f(t)}–${f(next)}</div></div>`;
+  n++;
+  const cls=hr>=next?"past":(hr>=t?"now":"");
+  return`<div class="slot"><span class="t">${f(t)}</span><div class="ap ${a[4]==="web"?"":"n"} ${cls}"><div class="r"><div><b>${a[1]}</b><small>${a[2]} · ${a[3]}</small></div><span class="tag ${a[4]==="web"?"web":"ok"}">${a[4]==="web"?"Internetu":"Telefonu"}</span></div></div></div>`;
+}).join("");
+document.getElementById("k1").textContent=n;
+document.getElementById("cnt").textContent=n+" vizitai";
+
+// savaitė
+const W=[["Pr",8],["An",11],["Tr",9],["Kt",13],["Pn",15],["Št",12]];
+const mx=Math.max(...W.map(w=>w[1]));
+document.getElementById("week").innerHTML=W.map(w=>`<div class="bar"><em>${w[1]}</em><i style="height:${Math.round(w[1]/mx*85)}%"></i><span>${w[0]}</span></div>`).join("");
+
+// priminimai
+const R=[["Simona L.","Gelinis manikiūras","10:00","Išsiųs"],["Petras D.","Vyrų kirpimas","12:30","Išsiųs"],["Aistė N.","Šaknų dažymas","15:00","Išsiųs"],["Darius K.","Barzdos kirpimas","17:30","Išsiųs"]];
+document.getElementById("rem").innerHTML=R.map(r=>`<div class="li"><span class="l"><span class="av">${r[0][0]}</span><span>${r[0]}<small>${r[1]} · rytoj ${r[2]}</small></span></span><span class="tag web">${r[3]}</span></div>`).join("");
+
+// skirtukai
+document.getElementById("tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+  document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("on",x===b));
+  document.querySelectorAll(".pane").forEach(p=>p.classList.toggle("on",p.id===b.dataset.p))});
+
+// pranešimas apie naują registraciją
+const d2=new Date(Date.now()+2*864e5);
+document.getElementById("tmsg").textContent=`Rūta · Moterų kirpimas · ${MN[d2.getMonth()]} ${d2.getDate()} d., 14:00`;
+setTimeout(()=>document.getElementById("toast").classList.add("show"),1800);
+setTimeout(()=>document.getElementById("toast").classList.remove("show"),7500);
+</script>
+</body>
+</html>
