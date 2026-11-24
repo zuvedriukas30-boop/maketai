@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dantida – valdymas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fbf6e1;--card:#ffffff;--line:rgba(20,30,40,.12);--ink:#1c1c1c;--muted:#5f5f5f;--teak:#1f1f1f;--gold:#8c7000;--gold2:#6f5900;--ok:#3f8f5a;--serif:"Playfair Display",Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--bg2);color:var(--ink);min-height:100vh}
+.stage{display:grid;grid-template-columns:1fr 420px;gap:64px;max-width:1120px;margin:0 auto;padding:56px 24px;align-items:center;min-height:100vh}
+.pitch .eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.pitch h1{font-family:var(--serif);font-weight:500;font-size:46px;line-height:1.05;margin:14px 0 16px}
+.pitch h1 em{color:var(--gold)}
+.pitch p{color:var(--muted);max-width:440px}
+.pitch ul{list-style:none;margin:26px 0}
+.pitch li{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:14px}
+.pitch li b{color:var(--gold);font-family:var(--serif);font-size:22px;font-weight:500;min-width:26px}
+.back{display:inline-block;margin-top:8px;color:var(--teak);font-weight:700;text-decoration:none;border-bottom:2px solid var(--gold)}
+.phone{width:400px;height:820px;border-radius:52px;border:10px solid var(--teak);background:var(--cream);overflow:hidden;position:relative;box-shadow:0 40px 100px rgba(30,46,24,.3)}
+.app{height:100%;overflow:auto;padding:20px 16px 90px;scrollbar-width:none}
+.app::-webkit-scrollbar{display:none}
+@media(max-width:900px){.stage{grid-template-columns:1fr;padding:0;gap:0}.pitch{display:none}.phone{width:100%;height:100svh;border:0;border-radius:0;box-shadow:none}}
+.demo{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--teak);border-radius:99px;padding:4px 10px;display:inline-block;font-weight:700}
+.top{display:flex;justify-content:space-between;align-items:flex-start;margin:14px 0 4px}
+.hi{font-family:var(--serif);font-size:25px;font-weight:500;line-height:1.15}
+.date{color:var(--muted);font-size:13px;margin-top:2px}
+.bell{width:42px;height:42px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative}
+.bell i{position:absolute;top:8px;right:9px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+.kpi b{display:block;font-family:var(--serif);font-size:28px;font-weight:500;line-height:1}
+.kpi span{font-size:11px;color:var(--muted)}
+.kpi.g{background:var(--teak);color:#fff;border-color:var(--teak)}.kpi.g span{color:rgba(255,255,255,.75)}
+.tabs{display:flex;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px;margin-bottom:14px}
+.tabs button{flex:1;border:0;background:none;color:var(--muted);font:700 13px Manrope,sans-serif;padding:9px;border-radius:99px;cursor:pointer}
+.tabs button.on{background:var(--teak);color:#fff}
+.h{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:16px 0 10px;display:flex;justify-content:space-between;font-weight:700}
+.h span{color:var(--muted);letter-spacing:0;text-transform:none;font-size:12px;font-weight:500}
+.ap{background:var(--card);border:1px solid var(--line);border-left:4px solid #b9a48f;border-radius:12px;padding:10px 12px;margin-bottom:8px;display:flex;gap:10px;align-items:center}
+.ap.web{border-left-color:var(--gold)}
+.ap.past{opacity:.45}
+.ap .tm{font-weight:700;font-size:13px;min-width:44px}
+.ap .bd{flex:1;min-width:0}
+.ap b{font-size:14px;display:block}
+.ap small{display:block;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:3px 7px;border-radius:6px;white-space:nowrap}
+.tag.web{background:color-mix(in srgb,var(--gold) 14%,transparent);color:var(--gold)}
+.tag.tel{background:rgba(30,46,24,.07);color:var(--muted)}
+.tag.en{background:#e7eef8;color:#3c5f8f;margin-left:4px}
+.grid{display:grid;grid-template-columns:44px repeat(4,1fr);gap:4px;font-size:11px}
+.grid .hd{font-weight:700;color:var(--muted);text-align:center;padding-bottom:4px}
+.grid .t{color:var(--muted);padding-top:2px}
+.cell{height:26px;border-radius:6px;background:rgba(30,46,24,.05)}
+.cell.b{background:var(--teak)}.cell.w{background:var(--gold)}
+.legend{display:flex;gap:14px;font-size:11px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.list{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.li{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);font-size:13px}
+.li:last-child{border:0}
+.li small{display:block;color:var(--muted);font-size:12px}
+.info{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
+.toast{position:absolute;left:12px;right:12px;top:14px;z-index:5;background:var(--teak);color:#fff;border-radius:18px;padding:12px 14px;display:flex;gap:12px;align-items:center;transform:translateY(-150%);transition:transform .5s cubic-bezier(.2,1.2,.3,1);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.toast.show{transform:none}
+.toast .ic{width:38px;height:38px;border-radius:10px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:13px;font-weight:600;flex:0 0 38px}
+.toast b{font-size:13px;display:block}
+.toast small{font-size:12px;color:rgba(255,255,255,.75)}
+.nav{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-around;padding:12px 0 22px;background:var(--cream);border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
+.nav span{display:flex;flex-direction:column;align-items:center;gap:4px}
+.nav span.on{color:var(--teak);font-weight:700}
+.nav svg{width:20px;height:20px}
+.pane{display:none}.pane.on{display:block}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="pitch">
+    <div class="eyebrow" id="pE"></div>
+    <h1 id="pH"></h1>
+    <p id="pP"></p>
+    <ul id="pL"></ul>
+    <p style="font-size:13px">Ekrane – pavyzdiniai duomenys.</p>
+    <a class="back" href="index.html">← Atgal į svetainę</a>
+  </div>
+
+  <div class="phone">
+    <div class="toast" id="toast"><div class="ic" id="tI"></div><div><b>Nauja rezervacija internetu</b><small id="tmsg"></small></div></div>
+    <div class="app">
+      <span class="demo">Pavyzdiniai duomenys</span>
+      <div class="top">
+        <div><div class="hi" id="hi">Laba diena!</div><div class="date" id="date"></div></div>
+        <div class="bell"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><i></i></div>
+      </div>
+      <div class="kpis">
+        <div class="kpi g"><b id="k1">0</b><span id="kU"></span></div>
+        <div class="kpi"><b id="k2">0</b><span>rezervuota internetu</span></div>
+        <div class="kpi"><b id="k3">0</b><span>laisvi langai</span></div>
+      </div>
+      <div class="tabs" id="tabs"><button class="on" data-p="p1">Šiandien</button><button data-p="p2">Užimtumas</button><button data-p="p3">Statistika</button></div>
+
+      <div class="pane on" id="p1"><div class="h">Dienos rezervacijos <span id="cnt"></span></div><div id="list"></div></div>
+
+      <div class="pane" id="p2">
+        <div class="h">Užimtumas <span id="gH"></span></div>
+        <div class="grid" id="grid"></div>
+        <div class="legend"><span><i style="background:var(--gold)"></i>internetu</span><span><i style="background:var(--teak)"></i>telefonu</span><span><i style="background:rgba(30,46,24,.08)"></i>laisva</span></div>
+      </div>
+
+      <div class="pane" id="p3">
+        <div class="h">Šis mėnuo <span>pavyzdys</span></div>
+        <div class="list" id="st"></div>
+        <p class="info">Matysite, kiek klientų užsiregistruoja patys, kada ir kokių paslaugų dažniausiai reikia.</p>
+      </div>
+    </div>
+    <div class="nav">
+      <span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Kalendorius</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Nauja</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M17 11a3 3 0 1 0 0-6M22 21a6 6 0 0 0-4-5.6"/></svg>Klientai</span>
+    </div>
+  </div>
+</div>
+<script>
+const D={"side": "Klinikos pusė", "pitchH": "Registracijos ateina <em>pačios</em>", "pitchP": "Pacientai patys užsiregistruoja – vakare ar savaitgalį. Gydytojai mato dienos planą telefone.", "points": ["Nauja registracija – iškart pranešimas telefone", "Pacientas aprašo nusiskundimą – iš anksto žinote, kas atvyks", "Priminimas el. paštu dieną prieš – mažiau neatvykusių pacientų", "Užimtumas vienoje vietoje – jokių dvigubų registracijų", "Telefonu skambinančius pacientus įrašote per 10 sekundžių"], "initials": "✓", "unit": "vizitai", "resources": ["Odontologė", "Burnos chirurgas", "Endodontė"], "open": 8, "close": 18, "sample": [[8, 30, 0, "Tomas G.", "Konsultacija", "web"], [8.5, 60, 1, "Rasa V.", "Protinio danties šalinimas", "tel"], [9, 60, 2, "Andrius K.", "Kanalų gydymas", "web"], [10, 90, 0, "Ieva M.", "Estetinis plombavimas", "web"], [11, 45, 1, "Darius P.", "Danties šalinimas", "web"], [12, 60, 0, "Neringa S.", "Burnos higiena", "tel"], [13, 120, 1, "Lina B.", "Implantacija", "web"], [14, 30, 2, "Mantas J.", "Įvertinimas mikroskopu", "web"], [15.5, 90, 0, "Eglė R.", "Balinimas BEYOND", "tel"]], "stats": [["Registruota internetu", "46", "šį mėnesį (pavyzdys)"], ["Registruota telefonu", "128", ""], ["Registracijos po darbo valandų", "21", "kai uždaryta"]], "toast": "Ieva M. · Estetinis plombavimas"};const $=id=>document.getElementById(id);
+$("pE").textContent=D.side;$("pH").innerHTML=D.pitchH;$("pP").textContent=D.pitchP;
+$("pL").innerHTML=D.points.map((p,i)=>`<li><b>${i+1}</b><span>${p}</span></li>`).join("");
+$("tI").textContent=D.initials;$("kU").textContent=D.unit+" šiandien";
+$("st").innerHTML=D.stats.map(s=>`<div class="li"><span>${s[0]}${s[2]?`<small>${s[2]}</small>`:""}</span><b>${s[1]}</b></div>`).join("");
+const MN=["sausio","vasario","kovo","balandžio","gegužės","birželio","liepos","rugpjūčio","rugsėjo","spalio","lapkričio","gruodžio"];
+const DN=["sekmadienis","pirmadienis","antradienis","trečiadienis","ketvirtadienis","penktadienis","šeštadienis"];
+const now=new Date(),hr=now.getHours()+now.getMinutes()/60;
+$("date").textContent=`${MN[now.getMonth()]} ${now.getDate()} d., ${DN[now.getDay()]}`;
+$("hi").textContent=hr<12?"Labas rytas!":hr<18?"Laba diena!":"Labas vakaras!";
+const A=D.sample,R=D.resources,O=D.open,C=D.close;
+const f=t=>Math.floor(t)+":"+(t%1?"30":"00");
+$("k1").textContent=A.length;$("k2").textContent=A.filter(a=>a[5]==="web").length;$("cnt").textContent=A.length+" "+D.unit;
+$("list").innerHTML=A.map(a=>{const past=hr>=a[0]+a[1]/60;return`<div class="ap ${a[5]==="web"?"web":""} ${past?"past":""}"><div class="tm">${f(a[0])}</div><div class="bd"><b>${a[3]}</b><small>${a[4]} · ${R[a[2]]}</small></div><span class="tag ${a[5]}">${a[5]==="web"?"Internetu":"Telefonu"}</span></div>`}).join("");
+$("gH").textContent=f(O)+"–"+f(C);
+let h=`<div></div>`+R.map(r=>`<div class="hd">${r.split(" ")[0].slice(0,7)}</div>`).join("");let free=0;
+$("grid").style.gridTemplateColumns=`44px repeat(${R.length},1fr)`;
+for(let t=O;t<C;t+=.5){h+=`<div class="t">${t%1?"":f(t)}</div>`;for(let m=0;m<R.length;m++){const a=A.find(a=>a[2]===m&&t>=a[0]&&t<a[0]+a[1]/60);if(!a)free++;h+=`<div class="cell ${a?(a[5]==="web"?"w":"b"):""}"></div>`}}
+$("grid").innerHTML=h;$("k3").textContent=Math.round(free/2);
+$("tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("on",x===b));document.querySelectorAll(".pane").forEach(p=>p.classList.toggle("on",p.id===b.dataset.p))});
+const d2=new Date(Date.now()+864e5);$("tmsg").textContent=`${D.toast} · ${MN[d2.getMonth()]} ${d2.getDate()} d., 10:30`;
+setTimeout(()=>$("toast").classList.add("show"),1500);setTimeout(()=>$("toast").classList.remove("show"),7000);
+</script>
+</body>
+</html>
