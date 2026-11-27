@@ -172,7 +172,7 @@ if(D.aboutImg)$("aImg").src="img/"+D.aboutImg;else $("aImg").parentNode.remove()
 $("aH").innerHTML=D.aboutH;$("aP").textContent=D.aboutP;
 $("feat").innerHTML=(D.features||[]).map(f=>`<li><i style="color:var(--main)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span><b>${esc(f[1])}</b> ${esc(f[2])}</span></li>`).join("");
 $("stats").innerHTML=(D.stats||[]).map(s=>`<div class="stat"><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join("");
-$("vA").textContent=D.address;$("vS").textContent=D.area+(D.email?" · "+D.email:"");
+$("vA").textContent=D.address;$("vS").textContent=D.area+(typeof D.email==="string"&&D.email?" · "+D.email:"");
 $("vT").textContent=D.phone;$("vT").href=$("bT").href="tel:"+D.phone.replace(/[^\d+]/g,"");
 $("vM").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(D.address+", "+(D.area||"Vilnius"));
 $("fL").textContent="© "+D.name+" · "+D.address;$("fR").textContent="Maketas: Kodomeistras.lt"+(D.photoCredit?" · nuotraukos: "+D.photoCredit:"");
